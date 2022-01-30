@@ -1,0 +1,76 @@
+
+hello:     file format elf64-littleaarch64
+
+
+Disassembly of section .note.gnu.build-id:
+
+0000000000400120 <.note.gnu.build-id>:
+  400120:	00000004 	.inst	0x00000004 ; undefined
+  400124:	00000014 	.inst	0x00000014 ; undefined
+  400128:	00000003 	.inst	0x00000003 ; undefined
+  40012c:	00554e47 	.inst	0x00554e47 ; undefined
+  400130:	322f5066 	orr	w6, w3, #0xfffe003f
+  400134:	89558cf8 	.inst	0x89558cf8 ; undefined
+  400138:	76c1f787 	.inst	0x76c1f787 ; undefined
+  40013c:	4e31e169 	pmull2	v9.8h, v11.16b, v17.16b
+  400140:	e85af08f 	.inst	0xe85af08f ; undefined
+
+Disassembly of section .text:
+
+0000000000400148 <write_char>:
+  400148:	90000081 	adrp	x1, 410000 <start+0xfe80>
+  40014c:	f940d821 	ldr	x1, [x1, #432]
+  400150:	39000020 	strb	w0, [x1]
+  400154:	d65f03c0 	ret
+
+0000000000400158 <write_string>:
+  400158:	39400001 	ldrb	w1, [x0]
+  40015c:	340000e1 	cbz	w1, 400178 <write_string+0x20>
+  400160:	90000083 	adrp	x3, 410000 <start+0xfe80>
+  400164:	d503201f 	nop
+  400168:	f940d862 	ldr	x2, [x3, #432]
+  40016c:	39000041 	strb	w1, [x2]
+  400170:	38401c01 	ldrb	w1, [x0, #1]!
+  400174:	35ffffa1 	cbnz	w1, 400168 <write_string+0x10>
+  400178:	d65f03c0 	ret
+  40017c:	d503201f 	nop
+
+0000000000400180 <start>:
+  400180:	90000001 	adrp	x1, 400000 <write_char-0x148>
+  400184:	9106a021 	add	x1, x1, #0x1a8
+  400188:	52800d00 	mov	w0, #0x68                  	// #104
+  40018c:	90000083 	adrp	x3, 410000 <start+0xfe80>
+  400190:	f940d862 	ldr	x2, [x3, #432]
+  400194:	39000040 	strb	w0, [x2]
+  400198:	38401c20 	ldrb	w0, [x1, #1]!
+  40019c:	35ffffa0 	cbnz	w0, 400190 <start+0x10>
+  4001a0:	d65f03c0 	ret
+
+Disassembly of section .rodata:
+
+00000000004001a8 <.rodata>:
+  4001a8:	6c6c6568 	.word	0x6c6c6568
+  4001ac:	00000a6f 	.word	0x00000a6f
+
+Disassembly of section .data:
+
+00000000004101b0 <magic>:
+  4101b0:	ffffffff 	.word	0xffffffff
+  4101b4:	ffffffff 	.word	0xffffffff
+
+Disassembly of section .comment:
+
+0000000000000000 <.comment>:
+   0:	3a434347 	ccmn	w26, w3, #0x7, mi  // mi = first
+   4:	62552820 	.inst	0x62552820 ; undefined
+   8:	75746e75 	.inst	0x75746e75 ; undefined
+   c:	6e694c2f 	uqshl	v15.8h, v1.8h, v9.8h
+  10:	206f7261 	.inst	0x206f7261 ; undefined
+  14:	2e332e37 	uqsub	v23.8b, v17.8b, v19.8b
+  18:	37322d30 	tbnz	w16, #6, 45bc <write_char-0x3fbb8c>
+  1c:	6e756275 	rsubhn2	v21.8h, v19.4s, v21.4s
+  20:	7e317574 	.inst	0x7e317574 ; undefined
+  24:	302e3831 	adr	x17, 5c729 <write_char-0x3a3a1f>
+  28:	37202934 	tbnz	w20, #4, 54c <write_char-0x3ffbfc>
+  2c:	302e332e 	adr	x14, 5c691 <write_char-0x3a3ab7>
+	...
