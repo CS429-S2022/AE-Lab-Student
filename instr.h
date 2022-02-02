@@ -10,6 +10,11 @@ typedef enum {
     OP_ADRP,
     OP_MOV,
     OP_MOVZ,
+    OP_LDR,
+    OP_LDRB,
+    OP_STRB,
+    OP_CBNZ,
+    OP_RET,
     OP_ERROR = -1
 } opcode_t;
 

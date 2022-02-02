@@ -13,7 +13,7 @@
 
 extern machine_t guest;
 
-static char *opcode_names[] = {"ERR", "ADD", "ADRP", "MOV", "MOVZ"};
+static char *opcode_names[] = {"ERR", "ADD", "ADRP", "MOV", "MOVZ", "LDR", "LDRB", "STRB", "CBNZ", "RET"};
 
 static char *cond_names[] = {
     "EQ", "NE", "CS", "CC", "MI", "PL", "VS", "VC", 
